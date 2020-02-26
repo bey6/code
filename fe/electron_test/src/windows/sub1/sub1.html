@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sub1</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <h1>Sub1 Window</h1>
+  <button onclick="handleCreateWindow(1)">使用 browserWindow 打开一个页面</button>
+  <button onclick="handleCreateWindow(2)">使用 ipcRenderer.invoke 打开一个页面</button>
+  <p id="num"></p>
+  <button onclick="handleProxyComunicateSub2()">使用主进程中转与 sub2 交互</button>
+  <script src="./sub1.page.js"></script>
+</body>
+
+</html>
