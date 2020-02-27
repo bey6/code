@@ -16,6 +16,7 @@
   "author": "bei6",
   "license": "ISC",
   "dependencies": {
-    "electron": "^8.0.2"
+    "electron": "^8.0.2",
+    "nodemailer": "^6.4.3"
   }
 }

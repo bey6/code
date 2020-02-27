@@ -356,6 +356,11 @@ ms@^2.1.1:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
 
+nodemailer@^6.4.3:
+  version "6.4.3"
+  resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-6.4.3.tgz#10d29195fb020e3297495bcba39d3519b23483f3"
+  integrity sha512-zmx4MTzYWQo2abFexvFYVURaiBGLekoA/yjP2Ctigd82hYtC4n38pcphQBi805t7AB2sY6DwmxnP/tb77f3KHA==
+
 normalize-url@^4.1.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-4.5.0.tgz#453354087e6ca96957bd8f5baf753f5982142129"
