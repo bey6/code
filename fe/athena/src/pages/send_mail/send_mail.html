@@ -5,25 +5,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="send_mail.css">
   <title>发送邮件</title>
 </head>
 
 <body>
-  <button id="send">发送邮件</button>
+  <h3>邮件发送</h3>
 
-  <label for="subject">
-    邮件主题：
-    <input type="text" name="subject" id="subject" placeholder="主题描述">
-  </label>
+  <form>
+    <label for="subject">邮件主题：</label>
+    <input type="text" name="subject" id="subject" placeholder="主题描述" required>
 
-  <label for="content">
-    工作项：
+    <label for="content">工作项：</label>
     <ol>
-      <li class="work-item"><input type="text"></li>
+      <li class="work-item"><input type="number" min="18" max="150" pattern="\d+"></li>
+      <li class="work-item"><input type="text" maxlength="5"></li>
+      <li class="work-item"><input type="text" required pattern="[Bb]anana|[Cc]herry"></li>
+      <li class="work-item"><input type="text" required></li>
+      <li class="work-item"><input type="text" required></li>
     </ol>
-  </label>
 
-  <script src="send_mail_page.js"></script>
+    <button id="back">返回首页</button>
+    <button id="send">发送邮件</button>
+  </form>
+  <script src="send_mail.js"></script>
 </body>
 
 </html>

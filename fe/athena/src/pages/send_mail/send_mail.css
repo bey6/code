@@ -1,0 +1,11 @@
+input:invalid {
+  border: 1px dashed #933;
+}
+
+input:invalid:required {
+  border: 1px dashed #933;
+}
+
+input:valid {
+  border: 1px solid #333;
+}

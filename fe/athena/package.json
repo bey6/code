@@ -18,5 +18,8 @@
   "dependencies": {
     "electron": "^8.0.2",
     "nodemailer": "^6.4.3"
+  },
+  "devDependencies": {
+    "picgo": "^1.4.6"
   }
 }
