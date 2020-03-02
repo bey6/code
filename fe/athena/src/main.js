@@ -1,20 +1,6 @@
-const { app, BrowserWindow, Menu } = require('electron')
+const { app } = require('electron')
+const { createWindow } = require('./windows/common.js')
 require('./ipc')
 
-let win
-
-app.on('ready', () => {
-  win = new BrowserWindow({
-    width: 1024,
-    height: 500,
-    webPreferences: {
-      nodeIntegration: true
-    }
-  })
-
-  Menu.setApplicationMenu(null)
-  win.webContents.openDevTools()
-  win.loadFile('src/pages/main/main.html')
-  // win.loadURL('http://127.0.0.1:8080')
-})
+app.on('ready', () => createWindow('src/pages/main/main.html'))
 
