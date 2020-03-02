@@ -1,0 +1,28 @@
+appId: com.example.app
+copyright: ©2020 bey6
+productName: electron-react
+
+asar: false
+extends: null
+
+directories:
+  buildResources: dist-assets/
+  output: dist/
+
+files:
+  - package.json
+  - build/
+  - node_modules/
+  - src/main.js
+
+dmg:
+  contents:
+    - type: link
+      path: /Applications
+      x: 410
+      y: 150
+    - type: file
+      x: 130
+      y: 150
+win:
+  target: nsis
