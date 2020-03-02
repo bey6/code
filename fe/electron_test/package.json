@@ -6,22 +6,22 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-    "pack:win": "electron-builder --win --x64",
-    "postinstall": "electron-builder install-app-deps"
+    "make:winx64": "electron-builder --win --x64"
   },
   "build": {
     "appId": "bey6.electron.test",
     "asar": false,
     "copyright": "©2020 bey6",
     "win": {
-      "icon": "assets/favicon.ico",
+      "icon": "https://github.com/bey6/code/blob/master/fe/electron_test/assets/favicon.ico",
       "target": [
         "nsis",
         "squirrel"
       ]
     },
     "squirrelWindows": {
-      "iconUrl": "assets/favicon.ico"
+      "iconUrl": "https://github.com/bey6/code/blob/master/fe/electron_test/assets/favicon.ico",
+      "loadingGif": "assets/loading.gif"
     }
   },
   "keywords": [],
