@@ -1,18 +1,39 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <input type="text"
+           v-model="msg">
+    <p>{{msg}}</p>
+    <button @click="handleTick">nextTick</button>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
-  name: 'home',
-  components: {
-    HelloWorld
+  data: () => ({
+    msg: ''
+  }),
+  methods: {
+    async handleTick () {
+      this.msg = 'hello nextTick'
+      console.log('1. ' + document.querySelector('p').textContent);
+
+      setTimeout(() => {
+        console.log('5. from timeout');
+      }, 0)
+
+      process.nextTick(() => {
+        console.log('4. from nextTick');
+      })
+
+      setImmediate(() => {
+        console.log('3. from immediate');
+      })
+
+      await this.$nextTick()
+        .then(function () {
+          console.log('2. ' + document.querySelector('p').textContent);
+        })
+    }
   }
 }
 </script>
