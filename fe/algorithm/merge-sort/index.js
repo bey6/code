@@ -31,7 +31,7 @@ function rank (startIdx, splitIdx, endIdx) {
   while (leftIdx <= splitIdx) temp.push(arr[leftIdx++])
 
   while (rightIdx <= endIdx) temp.push(arr[rightIdx++])
-
+  console.log(temp);
   temp.forEach((item, idx) => arr[startIdx + idx] = item)
 }
 
