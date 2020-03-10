@@ -9,3 +9,4 @@ quickSort(x, y) = quickSort(x, x + (y - x) / 2) + quickSort(x + (y - x) / 2 + 1,
 终止条件：
 x >= y
 ```
+
