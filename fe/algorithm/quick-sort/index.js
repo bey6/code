@@ -1,37 +1,46 @@
-const arr = [23, 14, 0, 55, 2, 8, 43, 11, 9]
+/**
+ * quick sort 排序的方式是自上层到下层的，与 merge sort 截然相反
+ */
 
+const datasource = [23, 14, 0, 55, 2, 8, 43, 11, 9]
 
-function quickSort (x, y) {
-  if (x >= y) return
+function quickSort (arr, x, y) {
+  if (x > y) return
 
-  let mid = x + (y - x) / 2
-  quickSort(x, mid)
-  quickSort(mid + 1, y)
+  let pivotIdx = partition(arr, x, y)
 
-  rank(x, y, mid)
+  quickSort(arr, x, pivotIdx - 1)
+  quickSort(arr, pivotIdx + 1, y)
 }
 
-function rank (startIdx, endIdx, midIdx) {
-  let switchIdx = startIdx, leftIdx = startIdx, p = arr[endIdx - 1]
+function partition (arr, x, y) {
+  let pivot = arr[y], i = x, k = x
 
-  while (leftIdx < endIdx - 1) {
-    if (arr[leftIdx] < p) {
-      [arr[switchIdx], arr[leftIdx]] = [arr[leftIdx++], arr[switchIdx++]]
-    } else {
-      leftIdx++
+  while (k < y) {
+    if (arr[k] < pivot) {
+      [arr[k], arr[i]] = [arr[i], arr[k]]
+      console.log(...arr.slice(x, y + 1));
+      i++
     }
+    k++
   }
 
-  if (switchIdx < endIdx - 1) {
-    let lastSmallIdx = switchIdx;
+  // // #region 不稳定排序
+  // [arr[y], arr[i]] = [arr[i], arr[y]]
+  // // #endregion
+
+  // #region 稳定排序
+  while (i < k) {
+    [arr[k], arr[k - 1]] = [arr[k - 1], arr[k]]
+    k--
+    console.log(...arr.slice(x, y + 1));
   }
-  while (switchIdx < endIdx - 1) {
-    if (switchIdx + 1 <= endIdx) {
-      [arr[switchIdx], arr[switchIdx + 1]] = [arr[switchIdx], arr[switchIdx + 1]]
-    } else {
-      [arr[lastSmallIdx], arr[switchIdx]]
-    }
-  }
+  // #endregion
+
+  return i
 }
 
-quickSort(0, arr.length - 1)
+quickSort(datasource, 0, datasource.length - 1)
+console.log();
+console.log('sorted result');
+console.log(...datasource);
