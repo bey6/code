@@ -12,17 +12,23 @@
 
 const arr = [3, 22, 66, 0, 99, 89, 1]
 
-function sort (startIdx, endIdx) {
+function mergeSort (startIdx, endIdx) {
   if (startIdx >= endIdx) return
 
   let splitIdx = Number.parseInt((endIdx - startIdx) / 2) + startIdx
-  sort(startIdx, splitIdx)
-  sort(splitIdx + 1, endIdx)
+  mergeSort(startIdx, splitIdx)
+  mergeSort(splitIdx + 1, endIdx)
 
-  rank(startIdx, splitIdx, endIdx)
+  merge(startIdx, splitIdx, endIdx)
 }
 
-function rank (startIdx, splitIdx, endIdx) {
+/**
+ * 将 start - end 之间的元素有序合并
+ * @param {number} startIdx 开始索引
+ * @param {number} splitIdx 分割点索引
+ * @param {number} endIdx 结束索引
+ */
+function merge (startIdx, splitIdx, endIdx) {
   let temp = [], leftIdx = startIdx, rightIdx = splitIdx + 1
 
   while (leftIdx <= splitIdx && rightIdx <= endIdx)
@@ -31,8 +37,8 @@ function rank (startIdx, splitIdx, endIdx) {
   while (leftIdx <= splitIdx) temp.push(arr[leftIdx++])
 
   while (rightIdx <= endIdx) temp.push(arr[rightIdx++])
-  console.log(temp);
+
   temp.forEach((item, idx) => arr[startIdx + idx] = item)
 }
 
-sort(0, arr.length - 1)
+mergeSort(0, arr.length - 1)
