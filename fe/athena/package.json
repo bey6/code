@@ -4,11 +4,7 @@
   "description": "the athena you need.",
   "main": "src/main.js",
   "scripts": {
-    "start": "electron .",
-    "start:render": "cd src && vue-cli-service serve",
-    "build:render": "cd src &&vue-cli-service build",
-    "test:unit": "cd src &&vue-cli-service test:unit",
-    "lint": "cd src &&vue-cli-service lint"
+    "start:main": "cd src && electron ."
   },
   "keywords": [
     "athena"
