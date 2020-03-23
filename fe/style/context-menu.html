@@ -1,100 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>右键菜单</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>右键菜单</title>
-</head>
-
-<body>
-  <h1>右键菜单</h1>
-  <style>
-    html,
-    body {
-      height: 100%;
-      width: 100%;
-      background-color: #f1f1f1;
-      margin: 0;
-    }
-
-    h1 {
-      margin: 0;
-    }
-
-    ul {
-      display: none;
-      position: absolute;
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
-      border: 1px solid #a8a8a8;
-      width: auto;
-      background-color: #fff;
-    }
-
-    .context-menu--show {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .context-menu--hidden {
-      display: none;
-    }
-
-    .context-menu__item {}
-  </style>
-  <script>
-    class ContextMenu {
-      __cm
-      constructor(host, items = []) {
-        this.__cm = document.createElement('ul')
-        items.forEach(item => {
-          let contextNode = document.createElement('li')
-          contextNode.textContent = item.label
-          this.__cm.append(contextNode)
-        })
-        document.body.append(this.__cm)
-
-        let hostNode = document.querySelector(host);
-        if (!hostNode) {
-          throw Error(`The host '${host}' can't find from document.`)
-        }
-
-        hostNode.addEventListener('contextmenu', e => {
-          e.preventDefault()
-          this.positioned(e.clientX, e.clientY)
-          this.toggle(true)
-          console.log(e);
-        })
-
-        document.body.addEventListener('click', e => {
-          this.toggle(false)
-        })
+  <body>
+    <div class="area">
+      <div class="cm">
+        context-menu -> here
+      </div>
+    </div>
+    <style>
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        background-color: #f1f1f1;
+        margin: 0;
+      }
+      .area {
+        border: 1px solid #a8a8a8;
+        height: 500px;
       }
 
-      toggle(status = undefined) {
-        if (status !== undefined) {
-          if (status) this.__cm.className = 'context-menu--show'
-          else this.__cm.className = 'context-menu--hidden'
-        } else {
-          if (this.__cm.className === 'context-menu--show') this.__cm.className = 'context-menu--hidden'
-          else this.__cm.className = 'context-menu--show'
-        }
-
+      .cm {
+        position: absolute;
+        left: 300px;
+        top: 128px;
+        width: 300px;
+        height: 300px;
+        background-color: brown;
       }
-
-      positioned(x = 0, y = 0) {
-        console.log(this.__cm.style);
-        this.__cm.style.left = x + 'px'
-        this.__cm.style.top = y + 'px'
+    </style>
+    <script src="./ContextMenu.js"></script>
+    <script>
+      onload = () => {
+        let cm = new ContextMenu('.cm', [
+          { label: '左旋', icon: '↶', click: e => console.log('左旋') },
+          { label: '右旋', icon: '↷', click: e => console.log('右旋') },
+          {
+            label: '放大',
+            icon: '⤲',
+            splitAfter: true,
+            click: e => console.log('放大')
+          },
+          { label: '关闭', icon: 'x', click: e => console.log('关闭') }
+        ])
       }
-    }
-
-    onload = () => {
-      let cm = new ContextMenu('body', [{ label: '左旋' }, { label: '右旋' }, { label: '放大' }, { label: '超长的一个' }])
-    }
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>
