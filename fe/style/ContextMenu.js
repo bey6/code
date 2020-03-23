@@ -119,7 +119,7 @@ class ContextMenu {
 
     let hostNode = document.querySelector(host)
     if (!hostNode) {
-      throw Error(`The host '${host}' can't find from document.`)
+      throw Error(`The host '${host}' you given can't find from document.`)
     }
 
     hostNode.addEventListener('contextmenu', e => {
