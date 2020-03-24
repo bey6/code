@@ -111,6 +111,7 @@ export default class ContextMenu {
 
     this.__cm = document.createElement('ul')
     this.__cm.className = 'context-menu context-menu--hidden'
+    this.__cm.addEventListener('contextmenu', e => e.preventDefault())
 
     items.forEach(item => {
       let contextNode = document.createElement('li')
