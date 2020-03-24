@@ -1,7 +1,9 @@
-class ContextMenu {
-  style = `ul {
-  visibility: hidden;
+export default class ContextMenu {
+  // 上下文菜单样式
+  style = `.context-menu {
   position: absolute;
+  left: 0;
+  top: 0;
   margin: 0;
   padding: 0;
   list-style-type: none;
@@ -38,6 +40,7 @@ class ContextMenu {
   padding: 2px;
   cursor: default;
   min-width: 128px;
+  user-select: none;
 }
 
 .context-menu__item:hover {
@@ -51,7 +54,7 @@ class ContextMenu {
 
 .context-menu__item__icon {
   text-align: center;
-  width: 50px;
+  width: 35px;
   line-height: 0.9em;
 }
 
@@ -66,27 +69,55 @@ class ContextMenu {
   margin: 1px;
   padding: 0;
   border: none;
+  height: 1px;
   background-color: #bbbbbb;
 }`
+  /**
+   * 对象实例
+   */
   __cm
+  /**
+   * 菜单的宽度
+   */
   SELF_WIDTH
+  /**
+   * 菜单的高度
+   */
   SELF_HEIGHT
-  constructor(host, items = []) {
+  /**
+   * 事件源
+   */
+  EVENT_TARGET
+
+  /**
+   * After display status changed
+   */
+  afterToggle = undefined
+
+  constructor(host, autoClose = true, items = []) {
+    this.autoClose = autoClose
     this.initialization(host, items)
   }
 
+  /**
+   * 
+   * @param { string } host 宿主选择器
+   * @param { [{ label: 'Item label', icon: 'Unicode img', click: 'A fuction that put it to be the click event'},...] } items 菜单项
+   */
   initialization (host, items) {
     const STYLE = document.createElement('style')
     STYLE.innerText = this.style
     document.body.appendChild(STYLE)
 
     this.__cm = document.createElement('ul')
+    this.__cm.className = 'context-menu context-menu--hidden'
+
     items.forEach(item => {
       let contextNode = document.createElement('li')
       contextNode.className = 'context-menu__item pd-2'
 
       // click event
-      if (item.click) contextNode.addEventListener('click', item.click)
+      if (item.click) contextNode.addEventListener('click', e => item.click(e, this.EVENT_TARGET))
 
       // icon 与 文本
       let icon, text
@@ -104,10 +135,8 @@ class ContextMenu {
       if (item.splitAfter) {
         let splitNode = document.createElement('li')
         splitNode.className = 'pd-2 pdl-3em'
-        let hrNode = document.createElement('hr')
+        let hrNode = document.createElement('div')
         hrNode.className = 'context-menu__split'
-        hrNode.setAttribute('size', '1px')
-        hrNode.setAttribute('noshadow', 'true')
         splitNode.append(hrNode)
         this.__cm.append(splitNode)
       }
@@ -124,28 +153,41 @@ class ContextMenu {
 
     hostNode.addEventListener('contextmenu', e => {
       e.preventDefault()
+      this.EVENT_TARGET = e.target;
       this.positioned(e.clientX, e.clientY)
       this.toggle(true)
     })
 
-    document.body.addEventListener('click', e => this.toggle(false))
+    document.body.addEventListener('click', e => {
+      if (!e.target.className.includes('context-menu__item') || this.autoClose) this.toggle(false)
+    })
   }
 
+  /**
+   * Switch context menu show status.
+   * @param { boolean } status [Optional] set an appointed value.
+   */
   toggle (status = undefined) {
-    this.__cm.className = 'context-menu--hidden'
+    this.__cm.className = 'context-menu context-menu--hidden'
 
     setTimeout(() => {
       if (status !== undefined) {
-        if (status) this.__cm.className = 'context-menu--show'
-        else this.__cm.className = 'context-menu--hidden'
+        if (status) this.__cm.className = 'context-menu context-menu--show'
+        else this.__cm.className = 'context-menu context-menu--hidden'
       } else {
-        if (this.__cm.className === 'context-menu--show')
-          this.__cm.className = 'context-menu--hidden'
-        else this.__cm.className = 'context-menu--show'
+        if (this.__cm.className === 'context-menu context-menu--show')
+          this.__cm.className = 'context-menu context-menu--hidden'
+        else this.__cm.className = 'context-menu context-menu--show'
       }
+      if (this.afterToggle) this.afterToggle()
     }, 80)
   }
 
+  /**
+   * Set the point of the context menu.
+   * @param { number } x Axis x
+   * @param { number } y Axis y
+   */
   positioned (x = 0, y = 0) {
     const VIEW_WIDTH = document.body.clientWidth,
       VIEW_HEIGHT = document.body.clientHeight,
