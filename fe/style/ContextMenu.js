@@ -100,11 +100,11 @@ export default class ContextMenu {
   }
 
   /**
-   * 
+   *
    * @param { string } host 宿主选择器
    * @param { [{ label: 'Item label', icon: 'Unicode img', click: 'A fuction that put it to be the click event'},...] } items 菜单项
    */
-  initialization (host, items) {
+  initialization(host, items) {
     const STYLE = document.createElement('style')
     STYLE.innerText = this.style
     document.body.appendChild(STYLE)
@@ -118,7 +118,10 @@ export default class ContextMenu {
       contextNode.className = 'context-menu__item pd-2'
 
       // click event
-      if (item.click) contextNode.addEventListener('click', e => item.click(e, this.EVENT_TARGET))
+      if (item.click)
+        contextNode.addEventListener('click', e =>
+          item.click(e, this.EVENT_TARGET)
+        )
 
       // icon 与 文本
       let icon, text
@@ -154,13 +157,14 @@ export default class ContextMenu {
 
     hostNode.addEventListener('contextmenu', e => {
       e.preventDefault()
-      this.EVENT_TARGET = e.target;
+      this.EVENT_TARGET = e.target
       this.positioned(e.clientX, e.clientY)
       this.toggle(true)
     })
 
     document.body.addEventListener('click', e => {
-      if (!e.target.className.includes('context-menu__item') || this.autoClose) this.toggle(false)
+      if (!e.target.className.includes('context-menu__item') || this.autoClose)
+        this.toggle(false)
     })
   }
 
@@ -168,7 +172,7 @@ export default class ContextMenu {
    * Switch context menu show status.
    * @param { boolean } status [Optional] set an appointed value.
    */
-  toggle (status = undefined) {
+  toggle(status = undefined) {
     this.__cm.className = 'context-menu context-menu--hidden'
 
     setTimeout(() => {
@@ -189,18 +193,28 @@ export default class ContextMenu {
    * @param { number } x Axis x
    * @param { number } y Axis y
    */
-  positioned (x = 0, y = 0) {
+  positioned(x = 0, y = 0) {
     const VIEW_WIDTH = document.body.clientWidth,
       VIEW_HEIGHT = document.body.clientHeight,
-      SCROLL_WIDTH = document.body.scrollLeft | document.documentElement.scrollLeft,
-      SCROLL_HEIGHT = document.body.scrollTop | document.documentElement.scrollTop
+      SCROLL_WIDTH =
+        document.body.scrollLeft | document.documentElement.scrollLeft,
+      SCROLL_HEIGHT =
+        document.body.scrollTop | document.documentElement.scrollTop
 
     // 修正坐标
-    if (x + this.SELF_WIDTH > VIEW_WIDTH) { this.__cm.style.left = (SCROLL_WIDTH + VIEW_WIDTH - this.SELF_WIDTH - 5) + 'px' }
-    else { this.__cm.style.left = (x + SCROLL_WIDTH) + 'px' }
+    if (x + this.SELF_WIDTH > VIEW_WIDTH) {
+      this.__cm.style.left =
+        SCROLL_WIDTH + VIEW_WIDTH - this.SELF_WIDTH - 5 + 'px'
+    } else {
+      this.__cm.style.left = x + SCROLL_WIDTH + 'px'
+    }
 
     // 修正坐标
-    if (y + this.SELF_HEIGHT > VIEW_HEIGHT) { this.__cm.style.top = (SCROLL_HEIGHT + VIEW_HEIGHT - this.SELF_HEIGHT - 5) + 'px' }
-    else { this.__cm.style.top = (y + SCROLL_HEIGHT) + 'px' }
+    if (y + this.SELF_HEIGHT > VIEW_HEIGHT) {
+      this.__cm.style.top =
+        SCROLL_HEIGHT + VIEW_HEIGHT - this.SELF_HEIGHT - 5 + 'px'
+    } else {
+      this.__cm.style.top = y + SCROLL_HEIGHT + 'px'
+    }
   }
 }
