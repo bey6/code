@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>box</title>
+  <style>
+    body {
+      font-family: '微软雅黑', sans-serif;
+    }
+
+    .box {
+      display: -moz-box;
+      display: -webkit-box;
+      height: 500px;
+    }
+
+    .box-item-size-1,
+    .box-item-size-2,
+    .box-item-size-3,
+    .box-item-size-default {
+      -moz-box-ordinal-group: 4;
+      -webkit-box-ordinal-group: 4;
+      background-color: #369;
+      margin: 4px;
+      color: #fff;
+      font-size: 2em;
+      font-weight: 600;
+    }
+
+    .box-item-size-1 {
+      -moz-box-flex: 1;
+      -webkit-box-flex: 1;
+      height: 100px;
+    }
+
+    .box-item-size-2 {
+      -moz-box-flex: 2;
+      -webkit-box-flex: 2;
+      height: 200px;
+    }
+
+    .box-item-size-3 {
+      -moz-box-flex: 3;
+      -webkit-box-flex: 3;
+      -moz-box-ordinal-group: 1;
+      -webkit-box-ordinal-group: 1;
+      height: 300px;
+    }
+
+    .box-item-size-default {
+      -moz-box-flex: 5;
+      -webkit-box-flex: 5;
+      -moz-box-ordinal-group: 3;
+      -webkit-box-ordinal-group: 3;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="box-item-size-1">1</div>
+    <div class="box-item-size-2">2</div>
+    <div class="box-item-size-3">3</div>
+    <div style="width: 400px;background-color: #936;">4</div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+extends ../layout
+
+block content
+
+  ul
+    each user in users
+      li #{user}
+  total #{users.length}

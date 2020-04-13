@@ -1,0 +1,17 @@
+{
+  "name": "tree-shaking",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.js"
+  },
+  "author": "bei",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6"
+  },
+  "dependencies": {},
+  "description": ""
+}

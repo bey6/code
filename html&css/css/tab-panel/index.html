@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <dl>
+    <dt>
+      <a href="#a" title="">焦点新闻</a><a href="#b" title="">国内新闻</a><a href="#c" title="">国际新闻</a>
+    </dt>
+    <dd>
+      <ul id="a">
+        <li><a href="">焦点新闻1</a></li>
+        <li><a href="">焦点新闻2</a></li>
+        <li><a href="">焦点新闻3</a></li>
+        <li><a href="">焦点新闻4</a></li>
+        <li><a href="">焦点新闻5</a></li>
+      </ul>
+      <ul id="b">
+        <li><a href="">国内新闻1</a></li>
+        <li><a href="">国内新闻2</a></li>
+        <li><a href="">国内新闻3</a></li>
+        <li><a href="">国内新闻4</a></li>
+        <li><a href="">国内新闻5</a></li>
+      </ul>
+      <ul id="c">
+        <li><a href="">国际新闻1</a></li>
+        <li><a href="">国际新闻2</a></li>
+        <li><a href="">国际新闻3</a></li>
+        <li><a href="">国际新闻4</a></li>
+        <li><a href="">国际新闻5</a></li>
+      </ul>
+    </dd>
+  </dl>
+  <div>
+    <b>解读</b>
+    <p>乍一看有点神奇, 但是仔细看下去会发现都是假象. 本例的核心样式有两个, 分别是 overflow: hidden; 和 锚点定位.</p>
+    <b>overflow: hidden</b>
+    <p>假如没有溢出隐藏, 那么会看到其实其他的内容都在可视区域的上或下侧. 整个可视区域就像是一个窗口, ul 就是躲在窗口后面的人, 就谁谁露头.</p>
+    <b>锚点定位</b>
+    <p>溢出隐藏锁定了一个小窗口, 不在窗口的人都无法被看到. 而锚点定位则负责叫人的功能. 点击标记后, 锚点定位到指定的 id, 这个人就露头了.</p>
+  </div>
+</body>
+
+</html>

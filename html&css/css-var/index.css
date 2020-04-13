@@ -1,0 +1,39 @@
+@import 'variable.css';
+
+:root {
+  font: 500 1em/1.6em 'microsoft yahei', sans-serif;
+  --font-color: #369;
+  --bg-color: rgb(219, 160, 72);
+}
+
+code {
+  padding: 4px 8px;
+  border-radius: 3px;
+  background-color: var(--bg-color);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 8px auto;
+  padding-left: 12px;
+  border-left: 3px solid crimson;
+}
+
+h1 {
+  font-size: 1.75em;
+  line-height: 2.35em;
+}
+h2 {
+  font-size: 1.55em;
+  line-height: 2.15em;
+}
+h3 {
+  font-size: 1.35em;
+  line-height: 1.95em;
+}
+h4 {
+  font-size: 1.15em;
+  line-height: 1.75em;
+}

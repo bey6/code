@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    html {
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>position: 定位</h1>
+  <dl>
+    <dt>static</dt>
+    <dd>默认值, 默认文档流定位</dd>
+    <dt>relative</dt>
+    <dd>相对定位, 相对于正常的文档流的偏移</dd>
+    <dt>absolute</dt>
+    <dd>绝对定位, 相对于最接近的已定位元素的偏移, 可以设置 z-index</dd>
+    <dt>fixed</dt>
+    <dd>固定定位, 相对于浏览器可视窗口的偏移</dd>
+  </dl>
+  <p>注意: 以下代码只是为了方便观察与对比, 真正开发时不应该这么写</p>
+  <style>
+    .relative,
+    .absolute,
+    .fixed,
+    .float {
+      padding: 12px;
+      border-width: 1px;
+      border-color: #333;
+    }
+
+    .relative {
+      position: relative;
+      background-color: #0f04;
+      border-style: dashed;
+    }
+
+    .absolute {
+      position: absolute;
+      background-color: #00f4;
+      border-style: dotted;
+    }
+
+    .fixed {
+      position: fixed;
+      background-color: #f004;
+      border-style: solid;
+    }
+
+    .float {
+      float: left;
+      background-color: #fc48;
+      border-style: dotted;
+    }
+  </style>
+  <div class="fixed" style="
+  top: 30px;
+  right: 30px;
+  width: 512px;
+  height: 512px;
+  ">本元素 fixed 定位
+    <div class="relative" style="top: 12px;">
+      <ul>
+        <li>position: relative</li>
+        <li>top: 12px;</li>
+      </ul>
+    </div>
+    <div class="float">
+      <ul>
+        <li>float: left;</li>
+      </ul>
+    </div>
+    <div class="float">
+      <ul>
+        <li>float: left;</li>
+      </ul>
+    </div>
+    <div class="float" style="clear: left;">
+      <ul>
+        <li>float: left;</li>
+      </ul>
+    </div>
+    <div class="relative" style="top: 12px;">
+      <ul>
+        <li>position: relative</li>
+        <li>top: 12px;</li>
+      </ul>
+    </div>
+    <div class="absolute" style="
+    left: -216px;
+    top: 0px;">
+      <ul>
+        <li>position: absolute;</li>
+        <li>left: -216px;</li>
+        <li>top: 0px;</li>
+      </ul>
+    </div>
+    <div class="relative" style="top: 24px;">
+      <ul>
+        <li>position: relative</li>
+        <li>top: 24px;</li>
+      </ul>
+    </div>
+  </div>
+  <div class="relative" style="
+  height: 1000px;">
+    我是一个 relative 占位符
+  </div>
+</body>
+
+</html>

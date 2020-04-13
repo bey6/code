@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>star</title>
+</head>
+
+<body>
+  <style>
+    .star {
+      position: relative;
+      left: 256px;
+      top: 256px;
+      width: 0;
+      height: 0;
+      position: relative;
+      border-left: 120px solid transparent;
+      border-right: 120px solid transparent;
+      border-top: 120px solid #da4;
+    }
+
+    .star:before {
+      position: absolute;
+      left: -127px;
+      top: -100px;
+      content: '';
+      width: 0;
+      height: 0;
+      display: block;
+      border-left: 120px solid transparent;
+      border-right: 120px solid transparent;
+      border-top: 120px solid #da4;
+      transform: rotate(-60deg);
+    }
+
+    .star:after {
+      position: absolute;
+      left: -111px;
+      top: -100px;
+      content: '';
+      width: 0;
+      height: 0;
+      display: block;
+      border-left: 120px solid transparent;
+      border-right: 120px solid transparent;
+      border-top: 120px solid #da4;
+      transform: rotate(60deg);
+    }
+  </style>
+  <div class="star"></div>
+</body>
+
+</html>

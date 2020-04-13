@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>flex</title>
+  <style>
+    body {
+      padding: 12px;
+    }
+
+    .flex {
+      font-family: '微软雅黑', sans-serif;
+      display: inline-flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      /* 侧轴对齐 */
+      align-items: center;
+      /* 扩展行对齐 */
+      align-content: center;
+      /* justify-content: space-around; */
+      /* align-items: center; */
+      height: 256px;
+      width: 100%;
+      background-color: #f1f1f1;
+    }
+
+    p {
+      /* flex-grow: 3; */
+      /* flex-shrink: 2; */
+      /* flex-basis: 256px; */
+      /* flex: 256px; */
+      /* flex: 3 2; */
+    }
+
+    * {
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="flex">
+    <h1 style="background-color: #abc;">h1 元素</h1>
+    <p style="background-color: #cba;">p 元素</p>
+    <ul style="background-color: #acb;">
+      <li>ul > li 元素 1</li>
+      <li>ul > li 元素 2</li>
+    </ul>
+    <span style="background-color: #bca;">span 元素</span>
+    <h1 style="background-color: #abc;">h1 元素</h1>
+    <p style="background-color: #cba;">p 元素</p>
+    <ul style="background-color: #acb;">
+      <li>ul > li 元素 1</li>
+      <li>ul > li 元素 2</li>
+    </ul>
+    <span style="background-color: #bca;">span 元素</span>
+  </div>
+</body>
+
+</html>
