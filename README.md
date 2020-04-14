@@ -15,11 +15,9 @@
 我大致把自己对前端知识体系的理解划分为 **6** 个大方向：
 
 - [HTML & CSS](./html&css)
-  - [html 篇](./html&css/html.md)
-  - [css 篇](./html&css/css.md)
 - [JavaScript](./javascript)
   - [vue 的 ssr](./javascript/vue-ssr)
-  - [d3](./javascript/d3)
+  - d3
   - [athena](./javascript/athena)
   - [mocha vue](./javascript/mocha-vue)
   - [unittest vue](./javascript/vue-unittest)
