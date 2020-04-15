@@ -1,6 +1,6 @@
-# 🌈 Code
+# 🌈 Coooode
 
-![小刘鸭-时代在照唤！](https://s1.ax1x.com/2020/04/14/JpCFRf.jpg)
+<center>![小刘鸭-时代在召唤！](https://s1.ax1x.com/2020/04/14/JpCFRf.jpg)</center>
 
 ## 🌱 前言
 
