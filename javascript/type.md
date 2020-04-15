@@ -39,4 +39,11 @@ console.log(sym1 === sym2) // false
 
 另外，与大部分的类型不同，Symbol 不会自动转换 String，所以你无法直接 log 一个 Symbol，不过你可以 `console.log(sym1.description)`。
 
+那么 **Symbol 具体有哪些用途**？
+
+通常 Symbol 会用来作为对象的 key，举个 🌰：
+
+```js
+```
+
 ### Object
