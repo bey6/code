@@ -28,7 +28,13 @@
 
 我们可以通过调用 `Symbol` 函数用来产生一个*匿名唯一值*。匿名意味着你没办法看到这个值，唯一则说明他是唯一的即使你看不到它的值是什么。
 
-`Symbol` 函数可以接受一个描述性的字符串，但是它仅仅是一个描述（对于开发者友好），所以说两个 Symbol 的描述完全可以是相同的，但是其本身必然还是唯一的。
+需要注意的是：
+
+- 不能也不应该对 Symbol(...) 使用 new。它并不是一个构造函，也不会创建一个对象。
+- 传给 Symbol(...) 的参数是可选的，当你传递时，它仅仅是一个字符串描述（对于开发者友好）。
+- typeof 的输出是一个新的值 "symbol"，这是识别 symbol 的首选方法。
+
+`Symbol` 函数可以接受一个描述性的字符串，，所以说两个 Symbol 的描述完全可以是相同的，但是其本身必然还是唯一的。
 
 ```js
 let sym1 = Symbol('A value'),
@@ -44,6 +50,25 @@ console.log(sym1 === sym2) // false
 通常 Symbol 会用来作为对象的 key，举个 🌰：
 
 ```js
+function Student(name, age) {
+  let nameField = Symbol('name')
+  return {
+    [nameField]: name,
+    age,
+    get name() {
+      return this[nameField]
+    },
+  }
+}
+
+let mk = new Student('马凯', 21),
+  xk = new Student('徐珂', 13)
+
+console.log(mk.name, xk.name) // 马凯 徐珂
+mk.name = '马帅凯'
+console.log(mk.name) // 马凯
 ```
+
+`function` 在 JavaScript 中属于一等公民，也就是说一个函数(或方法)也可以通过 Symbol 来实现 “私有化”，当然，和属性一样，属于看得见但是摸不着那种。
 
 ### Object

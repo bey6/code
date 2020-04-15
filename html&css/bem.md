@@ -1,4 +1,4 @@
-# BEM
+# 你必须知道的 BEM 规范
 
 **B**lock **E**lement **M**odifier 是一种书写 CSS 类名的规范，你可以使用它来规范自己的 CSS 代码，统一团队成员对类的命名风格。
 
@@ -28,4 +28,4 @@ Block__Element--Modifier
 
 那在简单的了解了 BEM 规范之后，是不是感觉豁然开朗？
 
-光说不练还是不够的，那么上一个我个人的使用[demo](https://codepen.io/bey6/pen/KKddqbx)吧
+光说不练还是不够的，那么上一个我个人的使用 [demo](https://codepen.io/bey6/pen/KKddqbx) 吧。
