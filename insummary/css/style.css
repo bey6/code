@@ -1,0 +1,35 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font: 500 1.2em sans-serif;
+}
+
+.header {
+  line-height: 38px;
+  text-align: center;
+  vertical-align: center;
+  color: #fff;
+  background-color: #333;
+}
+
+.main {
+  height: 100%;
+  overflow: y;
+}
+
+.img-box {
+  display: inline-block;
+  margin: 8px;
+  vertical-align: top;
+  width: 256px;
+  height: 200px;
+}
+
+.img-box img {
+  width: 100%;
+}
+
+.img-box img:hover {
+  width: 105%;
+}
