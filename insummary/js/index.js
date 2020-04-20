@@ -1,27 +1,32 @@
 $(function () {
-  console.log(location.search)
-  $.ajax({
-    type: 'GET',
-    url: 'http://konachan.net/post.json',
-    data: 'limit=20&page=1&tags=',
-    success: function (data) {
-      $.each(data, function (idx, item) {
-        var li = document.createElement('li')
-        li.className = 'img-box'
-        var pic = document.createElement('img')
-        pic.id = item.id
-        pic.setAttribute('src', item.preview_url)
-        pic.setAttribute('alt', item.tags)
-        pic.attachEvent('onclick', function () {
-          console.log('???')
-          viewBigImg = window.open('' + item.id, 'picture-detail')
-          viewBigImg.document.appendChild(
-            '<img src="' + item.jpeg_url + '" alt="' + item.tags + '">'
+  var p = 1,
+    scrollTimer
+  function pickPictures(page) {
+    $.ajax({
+      type: 'GET',
+      url: 'http://konachan.net/post.json',
+      data: 'limit=20&page=' + page + '&tags=',
+      success: function (data) {
+        $.each(data, function (idx, item) {
+          $('.list').append(
+            '<li class="img-box"><div class="pic"><a href="return false"><img alt="' +
+              item.tags +
+              '" src="' +
+              item.preview_url +
+              '"/></img></a></div></li>'
           )
         })
-        li.appendChild(pic)
-        $('.list').append(li)
-      })
-    }
-  })
+      },
+    })
+  }
+
+  // $(window).scroll(function () {
+  //   clearTimeout(scrollTimer)
+  //   scrollTimer = setTimeout(function () {
+  //     if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+  //       p++
+  //       pickPictures(p)
+  //     }
+  //   }, 200)
+  // })
 })

@@ -3,14 +3,46 @@ body {
   padding: 0;
   margin: 0;
   font: 500 1.2em sans-serif;
+  background-color: #333;
+  font: 500 1rem/1.5rem 'microsoft yahei', sans-serif;
 }
 
-.header {
-  line-height: 38px;
+.welcome {
+  height: 1200px;
   text-align: center;
-  vertical-align: center;
   color: #fff;
-  background-color: #333;
+  background: #333
+    url(https://konachan.net/sample/9d3092a3b119888bdfd6c561d9c0cd05/Konachan.com%20-%20305225%20sample.jpg?0.36488756813258255)
+    no-repeat center center;
+  background-size: 100% 100%;
+}
+
+.welcome > .container {
+  position: relative;
+  top: 20%;
+}
+
+.title {
+  height: 300px;
+}
+
+.title > h1 {
+  margin: 0;
+  text-align: center;
+  font-size: 3em;
+  font-style: italic;
+}
+
+.title > p {
+  font-size: 0.8em;
+}
+
+.search > input[type='text'] {
+  width: 512px;
+  height: 35px;
+  font-size: 30px;
+  border-color: 1px solid #ccc;
+  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(opacity=70);';
 }
 
 .main {
@@ -24,12 +56,20 @@ body {
   vertical-align: top;
   width: 256px;
   height: 200px;
+  border: 1px solid #ddd;
+  background-color: #fff;
 }
 
-.img-box img {
+.img-box .pic {
+  height: 160px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+img {
   width: 100%;
-}
-
-.img-box img:hover {
-  width: 105%;
+  height: 100%;
+  object-fit: cover;
+  zoom: 1;
+  border: none;
 }
