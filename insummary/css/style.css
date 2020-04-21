@@ -3,12 +3,18 @@ body {
   padding: 0;
   margin: 0;
   font: 500 1.2em sans-serif;
-  background-color: #333;
   font: 500 1rem/1.5rem 'microsoft yahei', sans-serif;
 }
 
+.viewport {
+  margin: 0 auto;
+  max-width: 1466px;
+  text-align: center;
+  background-color: #333;
+}
+
 .welcome {
-  height: 1200px;
+  height: 800px;
   text-align: center;
   color: #fff;
   background: #333
@@ -43,6 +49,23 @@ body {
   font-size: 30px;
   border-color: 1px solid #ccc;
   -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(opacity=70);';
+}
+
+.tags {
+  padding: 24px 12px;
+  text-align: center;
+  list-style: none;
+  background-color: #ddd;
+  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(opacity=50);';
+}
+
+.tags > li {
+  display: inline-block;
+  margin-right: 12px;
+}
+
+.tags > li > a {
+  color: #922;
 }
 
 .main {
